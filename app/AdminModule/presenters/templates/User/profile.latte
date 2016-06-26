@@ -1,0 +1,21 @@
+{block title}
+    <h1>Profil</h1>
+{/block}
+
+{block breadcrumb}
+    <ol class="breadcrumb">
+        <li><a n:href="Homepage:"><i class="fa fa-dashboard"></i> Domů</a></li>
+        <li class="active"><a n:href="Profil">Profil</a></li>
+    </ol>
+{/block}
+
+{block content}
+    <div class="row">
+        <div class="col-md-6">
+            {*{include '../components/form.latte', form => addEditUserForm, boxTitle => 'Změna údajů'}*}
+        </div>
+        <div class="col-md-6">
+            {*{include '../components/form.latte', form => changeUserPasswordForm, boxTitle => 'Změna hesla'}*}
+        </div>
+    </div>
+{/block}

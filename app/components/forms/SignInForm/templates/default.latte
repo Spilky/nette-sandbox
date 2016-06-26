@@ -1,0 +1,17 @@
+{form form}
+    <div class="form-group has-feedback">
+        {input email, class => 'form-control', placeholder => 'E-mail'}
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        {input password, class => 'form-control', placeholder => 'Heslo'}
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+    <div class="form-group remember-me">
+        {input remember, class => 'icheck'}
+        {*<a n:if="!isset($hiddenForgottenPassword)" href="#forgotten-password-modal" role="tab" data-toggle="tab">Zapomenuté heslo</a>*}
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-block btn-flat">Přihlásit se</button>
+    </div>
+{/form}

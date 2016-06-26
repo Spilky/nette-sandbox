@@ -1,0 +1,8 @@
+{snippet flashes}
+    <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+        {$flash->message}
+    </div>
+{/snippet}
+{block beforeDataGrid}{/block}
+{control dataGrid}
+{block afterDataGrid}{/block}

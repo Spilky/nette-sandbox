@@ -1,0 +1,25 @@
+{block title}
+    <h1>Uživatelé</h1>
+{/block}
+
+{block breadcrumb}
+    <ol class="breadcrumb">
+        <li><a n:href="Homepage:"><i class="fa fa-dashboard"></i> Domů</a></li>
+        <li class="active"><a n:href="User:">Uživatelé</a></li>
+    </ol>
+{/block}
+
+{block content}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h2 class="box-title">Výpis uživatelů</h2>
+                </div>
+                <div class="box-body">
+                    {control usersDataGrid}
+                </div>
+            </div>
+        </div>
+    </div>
+{/block}

@@ -1,0 +1,45 @@
+{block flashMessages}
+    <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+        {$flash->message}
+    </div>
+{/block}
+
+{block content}
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">{$boxTitle}</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" n:name="$form">
+            <div class="box-body">
+                {foreach $form->controls as $input}
+                    {if $input instanceof Nette\Forms\Controls\SubmitButton}
+                        {capture $boxFooter}
+                            {input $input, class => 'btn btn-primary'}
+                        {/capture}
+                    {elseif $input instanceof Nette\Forms\Controls\CheckboxList}
+                        <div class="form-group">
+                            {label $input /}
+                            <div class="checkbox">
+                                {input $input}
+                            </div>
+                        </div>
+                    {elseif $input instanceof Nette\Forms\Controls\HiddenField}
+                    {input $input}
+                    {else}
+                        <div class="form-group">
+                            {label $input /}
+                            {input $input, class => 'form-control'}
+                        </div>
+                    {/if}
+                {/foreach}
+            </div>
+            <!-- /.box-body -->
+
+            <div class="box-footer">
+                {$boxFooter|noescape}
+            </div>
+        </form>
+    </div>
+{/block}
