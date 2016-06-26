@@ -1,7 +1,3 @@
-{**
- * @param string   $basePath web base path
- * @param array    $flashes  flash messages
- *}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +5,22 @@
 
     <title>{ifset title}{include title|striptags} | {/ifset}Nette Sandbox</title>
 
+    <meta name="viewport" content="width=device-width">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="{$basePath}/bower-plugins/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Main -->
     <link rel="stylesheet" href="{$basePath}/css/base.css">
     <link rel="stylesheet" href="{$basePath}/css/front.css">
-    <meta name="viewport" content="width=device-width">
 
+    <!-- jQuery 2.1.4 -->
+    <script src="{$basePath}/bower-plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Nette ajax -->
+    <script src="{$basePath}/bower-plugins/nette.ajax.js/nette.ajax.js"></script>
+    <!-- Nette forms -->
+    <script src="{$basePath}/bower-plugins/nette-live-validation/src/netteForms.js"></script>
+    <script src="{$basePath}/bower-plugins/nette-live-validation/src/live-form-validation.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{$basePath}/bower-plugins/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Main -->
     <script src="{$basePath}/js/base.js"></script>
     <script src="{$basePath}/js/front.js"></script>
@@ -21,14 +29,71 @@
 </head>
 
 <body>
-    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
-    {include content}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-    {block scripts}
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
-    <script src="{$basePath}/js/main.js"></script>
-    {/block}
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Business Name or Tagline</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+        {include content}
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website {date('Y')}</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
 </body>
 </html>
